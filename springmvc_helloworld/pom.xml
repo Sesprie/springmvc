@@ -50,6 +50,8 @@
 
     <build>
         <finalName>springmvc_helloworld</finalName>
+
+        <!-- To define the plugin version in your parent POM -->
         <pluginManagement><!-- lock down plugins versions to avoid using Maven defaults (may be moved to parent pom) -->
             <plugins>
                 <plugin>
@@ -86,9 +88,9 @@
             </plugins>
         </pluginManagement>
 
+
+        <!-- To use the plugin goals in your POM or parent POM -->
         <plugins>
-
-
             <plugin>
                 <groupId>org.apache.tomcat.maven</groupId>
                 <artifactId>tomcat7-maven-plugin</artifactId>
