@@ -88,7 +88,7 @@
             </plugins>
         </pluginManagement>
 
-
+        <!-- https://tomcat.apache.org/maven-plugin-trunk/tomcat7-maven-plugin/plugin-info.html -->
         <!-- To use the plugin goals in your POM or parent POM -->
         <plugins>
             <plugin>
