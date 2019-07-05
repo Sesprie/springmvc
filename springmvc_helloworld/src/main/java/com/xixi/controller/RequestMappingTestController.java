@@ -31,7 +31,7 @@ public class RequestMappingTestController {
     }
 
     //params中的参数表示必须包含username，且age参数不能等于10，如果不符合条件，则没办法正确处理
-    //这里headers要求是Accept-Language: zh-CN,zh;q=0.9,en;q=0.8，如果是别的则不能访问
+    //这里headers要求是Accept-Language: zh-CN,zh;q=0.9,en;q=0.8，如果是别的则不能访问，会出现404
     @RequestMapping(value = "/testParams", params = {"username","age!=10"}, headers = "Accept-Language=zh-CN,zh;q=0.9,en;q=0.8")
     public String testParams() {
         return RESULT;

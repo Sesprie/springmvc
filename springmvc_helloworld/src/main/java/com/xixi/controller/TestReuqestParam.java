@@ -2,6 +2,7 @@ package com.xixi.controller;
 
 
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.CookieValue;
 import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -17,14 +18,17 @@ import javax.servlet.http.HttpServletRequest;
 @Controller
 public class TestReuqestParam {
 
+
+    public static final String RESULT = "success";
+
+
     @RequestMapping(value = "/testRequestParam")
     public String testRequestParam(@RequestParam(value = "username") String username,
                                    @RequestParam(value = "age", required = false, defaultValue = "0") int age, HttpServletRequest request){
         //这里的int age，如果在RequestParam中不给defaultValue值，则会报错，虽然将required设置为了false
         //如果不想设置defaultValue值，则直接将int改为包装类Integer，则不传age时，默认是null，不会报错
         request.setAttribute("msg", "username:"+ username+" age:" + age);
-
-        return "success";
+        return RESULT;
     }
 
 
@@ -32,7 +36,24 @@ public class TestReuqestParam {
     @RequestMapping(value = "/testRequestHeader")
     public String testReuqestHeader(@RequestHeader("Accept-Language") String al, HttpServletRequest request){
         request.setAttribute("msg", "Accept-Language:" + al);
-        return "success";
+        return RESULT;
     }
+
+    //测试@CookieValue，用于获取指定的Cookie值
+    @RequestMapping(value = "/testCookieValue")
+    public String testCookieValue(@CookieValue(value = "JSESSIONID") String JSessionId, HttpServletRequest request){
+        request.setAttribute("msg", "JSESSIONID: " + JSessionId);
+        return RESULT;
+    }
+
+
+
+
+
+
+
+
+
+
 
 }
