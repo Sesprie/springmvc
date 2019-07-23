@@ -2,18 +2,38 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:mvc="http://www.springframework.org/schema/mvc"
        xsi:schemaLocation="
         http://www.springframework.org/schema/beans
         http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/mvc
+        http://www.springframework.org/schema/mvc/spring-mvc.xsd
         http://www.springframework.org/schema/context
         http://www.springframework.org/schema/context/spring-context.xsd">
 
 
     <context:component-scan base-package="com.xixi.controller"/>
 
+    <!--  order的值越小，优先级越高，源码里边默认的order值是Integer.MAX_VALUE  -->
+    <!--  会去寻找helloView等String对应的类的实例  -->
+    <!--  需要将自定义的view加入Spring容器，使用@Component注解  -->
+    <bean class="org.springframework.web.servlet.view.BeanNameViewResolver">
+    </bean>
+
+
     <!-- 配置视图解析器 -->
     <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
         <property name="prefix" value="/WEB-INF/"/>
         <property name="suffix" value=".jsp"/>
     </bean>
+
+
+
+
+    <!--  配置将对应的路径直接解析到对应的文件,无需再经过对应的handler方法，需要配置mvc:annotation-driven标签  -->
+    <mvc:view-controller path="/success" view-name="success"/>
+
+    <mvc:annotation-driven/>
+
+
 </beans>

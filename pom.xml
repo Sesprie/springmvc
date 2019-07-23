@@ -10,6 +10,7 @@
     <version>1.0-SNAPSHOT</version>
     <modules>
         <module>springmvc_helloworld</module>
+        <module>springmvc_CRUD</module>
     </modules>
 
 

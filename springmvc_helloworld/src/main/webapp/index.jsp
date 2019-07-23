@@ -2,7 +2,11 @@
 
 <html>
 <body>
+<a href="/testHelloView">testHelloView</a>
+<hr>
 
+<a href="/testInternalResouceViewAndView">testInternalResouceViewAndView</a>
+<hr>
 
 <form action="/requestmapping/testPostSubmit" method="post">
 

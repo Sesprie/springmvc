@@ -14,6 +14,10 @@
 <body>
 
 
+
+<hr>
+
+
 <c:if test="${msg} != null">
     ${msg}
     ${requestScope.msg}
